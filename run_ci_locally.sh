@@ -123,6 +123,7 @@ if [ -n "$(git status -s)" ]; then
 fi
 
 act \
+  -P image=catthehacker/ubuntu:act-latest \
   --secret=GITHUB_TOKEN="${GITHUB_TOKEN}" \
   --secret-file="${SECRETS_FILENAME}" \
   --var-file=.env
