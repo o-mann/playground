@@ -9,6 +9,10 @@ class Alpha < Sinatra::Base
     'Pears'
   end
 
+  get '/nopear' do
+    'Strawberries'
+  end
+
   get '/ready' do
     Prober.new.ready?
   end
