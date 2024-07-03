@@ -151,10 +151,10 @@ jobs:
     - name: Attest lint artifact provenance to KOSLI
       run: |
         docker pull ${{needs.setup.outputs.image_name }}
-        # kosli attest generic ${{needs.setup.outputs.image_name }} \
-        #   --artifact-type=docker \
-        #   --trail=${{ github.sha }} \
-        #   --name=alpha.lint
+        kosli attest generic ${{needs.setup.outputs.image_name }} \
+          --artifact-type=docker \
+          --trail=${{ github.sha }} \
+          --name=alpha.lint
   
   deploy:
     runs-on: ubuntu-latest
