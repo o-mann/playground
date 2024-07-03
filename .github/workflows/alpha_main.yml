@@ -107,6 +107,19 @@ jobs:
         path: ${{ needs.setup.outputs.image_tar_filename }}
         key: ${{ needs.setup.outputs.image_name }}
 
+    - name: Setup Kosli cli
+      uses: kosli-dev/setup-cli-action@v2
+      with:
+        version:
+          ${{ env.KOSLI_CLI_VERSION }}
+
+    - name: Attest artifact provenance to KOSLI
+      run: |
+        kosli attest artifact ${{needs.setup.outputs.image_name }} \
+          --artifact-type=docker \
+          --trail=${{ github.sha }} \
+          --name=alpha      
+
   lint:
     name: Run rubocop linter
     needs: [build]
