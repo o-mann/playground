@@ -154,7 +154,7 @@ jobs:
         kosli attest generic ${{needs.setup.outputs.image_name }} \
           --artifact-type=docker \
           --trail=${{ github.sha }} \
-          --name=lint
+          --name=alpha.lint
   
   deploy:
     runs-on: ubuntu-latest

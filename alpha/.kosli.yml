@@ -1,5 +1,7 @@
 version: 1
 trail:
-  attestations:
-  - name: lint
-    type: generic
+  artifacts:
+    - name: alpha
+      attestations:
+        - name: lint
+          type: generic
